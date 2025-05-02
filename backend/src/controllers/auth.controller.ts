@@ -27,7 +27,6 @@ export const registerUserController = asyncHandler(
     const body = registerSchema.parse({
       ...req.body,
     });
-
     await registerUserService(body);
 
     return res.status(HTTPSTATUS.CREATED).json({

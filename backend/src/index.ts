@@ -1,4 +1,4 @@
-import "dotenv/config";
+require('dotenv').config();
 import express, { NextFunction, Request, Response } from "express";
 import cors from "cors";
 import session from "cookie-session";
@@ -69,7 +69,6 @@ app.use(`${BASE_PATH}/project`, isAuthenticated, projectRoutes);
 app.use(`${BASE_PATH}/task`, isAuthenticated, taskRoutes);
 
 app.use(errorHandler);
-
 app.listen(config.PORT, async () => {
   console.log(`Server listening on port ${config.PORT} in ${config.NODE_ENV}`);
   await connectDatabase();
